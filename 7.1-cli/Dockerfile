@@ -19,3 +19,5 @@ RUN docker-php-ext-install intl
 
 ENV PHP_EXT_APCU_VERSION "5.1.7"
 RUN yes "" | pecl install apcu-$PHP_EXT_APCU_VERSION && docker-php-ext-enable apcu
+
+RUN curl --retry 10 --retry-delay 3 https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
